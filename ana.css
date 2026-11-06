@@ -1,0 +1,348 @@
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 25px;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background: #191923;
+    color: #bfc0ca;
+
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+.encabezado {
+    width: 100%;
+    min-height: 80px;
+    padding: 20px 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    background: #191923;
+    border-bottom: 1px solid #30303b;
+}
+
+.logo {
+    color: #d40b0b;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #d40b0b;
+}
+
+.volver {
+    color: #bfc0ca;
+    font-size: 14px;
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+.volver:hover {
+    color: #ffffff;
+}
+
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+
+.contenedor {
+    width: 100%;
+    max-width: 1150px;
+
+    margin: 0 auto;
+    padding: 65px 40px 80px;
+
+    flex: 1;
+}
+
+.documento {
+    width: 100%;
+}
+
+
+/* =========================
+   TÍTULO PRINCIPAL
+========================= */
+
+.documento > h1 {
+    margin-bottom: 25px;
+
+    color: #f4f4f7;
+
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.4;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.introduccion {
+    margin-bottom: 20px;
+
+    color: #c8c8d2;
+    font-size: 16px;
+}
+
+.fecha {
+    margin-bottom: 45px;
+
+    color: #858593;
+    font-size: 13px;
+}
+
+
+/* =========================
+   SECCIONES
+========================= */
+
+.seccion {
+    margin-bottom: 40px;
+    scroll-margin-top: 25px;
+}
+
+.seccion h2 {
+    margin-bottom: 17px;
+
+    color: #e6e6ec;
+
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.seccion p {
+    margin-bottom: 17px;
+
+    color: #bfc0ca;
+
+    font-size: 15px;
+    line-height: 1.95;
+
+    overflow-wrap: anywhere;
+}
+
+.seccion strong {
+    color: #e0e0e8;
+}
+
+.seccion a {
+    color: #d6b45d;
+    text-decoration: none;
+}
+
+.seccion a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   AVISO INFORMATIVO
+========================= */
+
+.aviso {
+    margin-top: 50px;
+    padding: 25px;
+
+    background: #22222e;
+    border-left: 3px solid #ffffff;
+    border-radius: 4px;
+}
+
+.aviso h2 {
+    margin-bottom: 15px;
+
+    color:#ffffff;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.aviso p {
+    margin-bottom: 12px;
+
+    color: #bfc0ca;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.aviso p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   PIE DE PÁGINA
+========================= */
+
+.pie {
+    width: 100%;
+    padding: 35px 20px;
+
+    background: #171720;
+    border-top: 1px solid #30303b;
+
+    text-align: center;
+}
+
+.copyright {
+    margin-bottom: 18px;
+
+    color: #9999a7;
+    font-size: 14px;
+}
+
+.enlaces-pie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+.enlaces-pie a {
+    color: #a5a5b1;
+    font-size: 13px;
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+.enlaces-pie a:hover {
+    color: #ffffff;
+}
+
+.enlaces-pie span {
+    color: #494955;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 800px) {
+
+    .contenedor {
+        padding: 50px 28px 65px;
+    }
+
+    .documento > h1 {
+        font-size: 28px;
+    }
+
+    .seccion h2 {
+        font-size: 19px;
+    }
+
+}
+
+
+/* =========================
+   TELÉFONOS
+========================= */
+
+@media (max-width: 600px) {
+
+    .encabezado {
+        min-height: 70px;
+        padding: 16px 18px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .volver {
+        font-size: 12px;
+    }
+
+    .contenedor {
+        padding: 38px 20px 50px;
+    }
+
+    .documento > h1 {
+        margin-bottom: 20px;
+        font-size: 25px;
+    }
+
+    .introduccion {
+        font-size: 14px;
+        line-height: 1.85;
+    }
+
+    .fecha {
+        margin-bottom: 35px;
+    }
+
+    .seccion {
+        margin-bottom: 32px;
+    }
+
+    .seccion h2 {
+        margin-bottom: 13px;
+        font-size: 18px;
+    }
+
+    .seccion p {
+        font-size: 14px;
+        line-height: 1.9;
+    }
+
+    .aviso {
+        margin-top: 35px;
+        padding: 18px;
+    }
+
+    .aviso h2 {
+        font-size: 16px;
+    }
+
+    .aviso p {
+        font-size: 13px;
+    }
+
+    .pie {
+        padding: 28px 15px;
+    }
+
+    .copyright {
+        font-size: 12px;
+    }
+
+    .enlaces-pie {
+        gap: 10px;
+    }
+
+    .enlaces-pie a {
+        font-size: 12px;
+    }
+
+}

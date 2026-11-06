@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<title>Centro de Recargas</title>
+<link rel="stylesheet" href="Delta_Force.css">
+
+<script src="Delta_force.js" defer></script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+<!--AQUI INICIA EL INICIO------------------------------------------------------------------------------------------------------------------------------------------------------------>
+<header class="encabezado">
+  <div class="marca">
+    <div class="logo">OroPLus<small>Bank</small></div>
+    <div class="separador"></div>
+    <div class="titulo-marca" id="tituloMarca">Centro Oficial<br>de Recargas</div>
+  </div>
+
+  <div class="controles">
+    <button class="selector-superior" id="abrirConfiguracion">
+      <span id="banderaSuperior">🇩🇴</span>
+      <span id="regionSuperior">República Dominicana</span>
+      <span id="idiomaSuperior">ES</span> ▼
+    </button>
+    <button class="perfil" id="botonPerfil">≡</button>
+  </div>
+
+  <div class="menu-perfil" id="menuPerfil">
+    <a  href="#seccion6"><button type="button" data-texto="iniciar">
+        Iniciar sesión
+    </button></a>
+
+    <button type="button" data-texto="configuracion">
+        Idioma / Región
+    </button>
+
+
+    <a href="preguntas.html" ><button type="button" data-texto="ayuda">
+        Centro de ayuda
+    </button></a>
+
+    <button type="button" id="compartir" class="boton-compartir">
+        Compartir página
+    </button>
+</div>
+<!-- </header> -->
+
+<main class="contenido">
+
+  <!-- CARRUSEL PRINCIPAL: cambia el src para cambiar cada banner -->
+  <section class="carrusel" id="carrusel">
+    <div class="carrusel-pista" id="carruselPista">
+
+      <article class="diapo">
+        <img src="logo/oferta.jpeg" alt="Promoción de videojuegos">
+        <div class="texto-diapo">
+          <span class="etiqueta" id="etiquetaBanner"></span>
+          <h1 id="tituloBanner"></h1>
+          <p id="descripcionBanner"></p>
+          <a href="#recargar09"><button class="boton-principal" id="botonRecargar">Recargar</button></a> 
+        </div>
+      </article>
+
+      <article class="diapo">
+        <img src="logo/Sitio oficial de recargas.jpeg" alt="Equipo gamer">
+        <div class="texto-diapo">
+          <span class="etiqueta" id="etiquetaBanner2">TU PRÓXIMA PARTIDA</span>
+          <h1 id="tituloBanner2">Elige tu juego favorito</h1>
+          <p id="descripcionBanner2">Encuentra tu próximo juego.</p>
+          <button class="boton-principal boton-ir-juegos" id="botonBanner2">Ver juegos</button>
+        </div>
+      </article>
+
+      <article class="diapo">
+        <img src="logo/ligacion01.jpg" alt="Zona gamer">
+        <div class="texto-diapo">
+          <span class="etiqueta" id="etiquetaBanner3">TODO EN UN SOLO LUGAR</span>
+          <h1 id="tituloBanner3">Tu zona gamer</h1>
+          <p id="descripcionBanner3">Tus juegos favoritos en un solo lugar.</p>
+          <button class="boton-principal boton-ir-juegos" id="botonBanner3">Comenzar</button>
+        </div>
+      </article>
+
+    </div>
+    <div class="puntos" id="puntosCarrusel"></div>
+  </section>
+
+  <!-- SELECCIÓN DE JUEGO -->
+  <section class="seleccion-juegos" id="seccionJuegos">
+    <h2 class="titulo-seccion" id="tituloJuegos">Selección de Juego</h2>
+
+    <div class="juegos" id="juegos">
+
+
+         <button class="tarjeta-juego seleccionado" data-juego="delta" aria-pressed="false">
+        <div class="contenedor-icono">
+           <span class="marca-seleccion">✓</span>
+          <img src="logo/delta force.jpeg" alt="Delta Force"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+          <span class="icono-respaldo"></span>
+        </div>
+        <span class="nombre-juego">Delta<br>Force</span>
+      </button> 
+
+      <a href="index.html"><button class="tarjeta-juego" data-juego="freefire" aria-pressed="true">
+        <div class="contenedor-icono">
+          <img src="logo/freefire.jpeg" alt="Free Fire"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+          <span class="icono-respaldo"></span>
+        </div>
+        <span class="nombre-juego">Free Fire</span>
+      </button></a> 
+
+     
+
+      <a  href="Haikyu_fly_high.html"><button class="tarjeta-juego" data-juego="haikyu" aria-pressed="false">
+        <div class="contenedor-icono">
+          <img src="logo/HAIKYU!! FLY HIGH.jpeg" alt="HAIKYU!! FLY HIGH"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+          <span class="icono-respaldo"></span>
+        </div>
+        <span class="nombre-juego">HAIKYU!!<br>FLY HIGH</span></button></a> 
+ 
+   <div id="seccion6"></div>
+    </div>
+  </section>
+
+  <!-- ÁREA DE RECARGA DE DEMOSTRACIÓN -->
+  <section class="panel-recarga" id="panelRecarga">
+    <div class="banner-juego">
+      <div class="icono-pequeno" id="iconoElegido"></div>
+      <div>
+        <h2 id="nombreJuegoElegido">Delta Force</h2>
+        <span class="pago-seguro">♢ <span id="textoSeguro">Pago 100% seguro</span></span>
+      </div>
+    </div>
+
+    <div class="paso-titulo">
+      <span>1</span>
+      <h2 id="tituloIngresar">Ingresar</h2>
+    </div>
+
+    <div class="caja-jugador">
+      <label for="idJugador" id="etiquetaId">ID de jugador</label>
+      <div class="entrada-jugador">
+        <input id="idJugador" type="text" inputmode="numeric"
+               placeholder="Introduce el ID del jugador">
+        <button id="iniciarSesion">Ingresar</button>
+      </div>
+
+      <p class="aviso" id="descripcionJuegoElegido">
+        Demostración visual. No se procesan pagos reales.
+      </p>
+
+      <div class="separador-login">
+        <span id="opcionesLogin">O ingresa con una cuenta</span>
+      </div>
+
+      <div class="redes">
+        <a class="facebook" href="https://www.facebook.com/"><button>F</button></a>
+         <a class="google"href="https://myaccount.google.com/"><button>G</button></a>
+         <a class="xxx" href="https://x.com/"><button data-red="X" aria-label="X">𝕏</button></a>
+        <a class="facebook" href="https://vk.ru/"><button data-red="VK" aria-label="VK">ᴠκ</button></a>
+     
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="pie" class="pie">
+   página oficial de OroPlus.
+</footer>
+
+<!-- VENTANA DE IDIOMA Y REGIÓN -->
+<div class="fondo-modal" id="fondoModal">
+  <section class="modal" role="dialog" aria-modal="true">
+    <div class="modal-cabecera">
+      <button class="cerrar" id="cerrarModal" aria-label="Cerrar">×</button>
+      <h2 id="tituloModal">Idioma/Región</h2>
+    </div>
+
+    <div class="modal-contenido">
+      <p class="etiqueta-grupo" id="textoIdioma">Idioma</p>
+
+      <div class="idiomas">
+        <button class="opcion seleccionada" data-idioma="es">ES</button>
+        <button class="opcion" data-idioma="en">EN</button>
+      </div>
+
+      <p class="etiqueta-grupo" id="textoRegion">Región</p>
+      <div class="regiones" id="listaRegiones"></div>
+    </div>
+
+    <div class="modal-pie">
+      <button class="guardar" id="guardarCambios">Guardar</button>
+    </div>
+  </section>
+</div>
+
+<div class="mensaje" id="mensajea" role="status"></div>
+<!--AQUI FINALIZA INICIO------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--AQUI INICIA LAS RECARGA------------------------------------------------------------------------------------------------------------------------------------------------------------>
+<div class="transparente"> </div>
+      <h2 id="tituloIngresar"></h2>
+ 
+<div id="tarje"></div>
+<div id="recargar09"></div>
+  <main class="contenedor"><div class="paso-02">2</div>
+    <h1>Comprar diamantes</h1>
+    <p class="descripcion">Selecciona la cantidad que deseas comprar.</p>
+
+    <section class="diamantes" id="listaDiamantes">
+      <!-- Los botones se crean con JavaScript -->
+    </section>
+  </main>
+
+  <div id="sehizo"></div>
+
+  <!-- VENTANA DE PAGO -->
+  <div class="fondo-modal" id="modalPago" aria-hidden="true">
+    <section class="ventana-pago"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="tituloPago">
+
+      <button class="cerrar" id="cerrarPago"
+              type="button" aria-label="Cerrar">×</button>
+
+      <h2 id="tituloPago">Completar compra</h2>
+      <p class="subtitulo">Revisa tu pedido antes de continuar.</p>
+
+      <div class="resumen">
+        <span>Diamantes seleccionados</span>
+        <strong id="cantidadElegida">100 💎</strong>
+
+        <span>Precio total</span>
+        <strong id="precioElegido">RD$ 0.00</strong>
+      </div>
+
+      <form id="formularioPago">
+        <h3>Datos del comprador</h3>
+
+        <div class="dos-columnas">
+          <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" type="text"
+                   placeholder="Tu nombre"
+                   autocomplete="given-name" required>
+          </div>
+
+          <div class="campo">
+            <label for="apellido">Apellido</label>
+            <input id="apellido" type="text"
+                   placeholder="Tu apellido"
+                   autocomplete="family-name" required>
+          </div>
+        </div>
+
+        <h3>Datos de pago</h3>
+
+        <div class="campo">
+          <label for="tarjeta">Número de tarjeta</label>
+          <input id="tarjeta" type="text"
+                 inputmode="numeric"
+                 placeholder="0000 0000 0000 0000"
+                 autocomplete="cc-number"
+                 maxlength="17" required>
+        </div>
+
+        <div class="dos-columnas">
+          <div class="campo">
+            <label for="vencimiento">Vencimiento</label>
+            <input id="vencimiento" type="text"
+                   inputmode="numeric"
+                   placeholder="MM/AA"
+                   autocomplete="cc-exp"
+                   maxlength="5" required>
+          </div>
+
+          <div class="campo">
+            <label for="csc">CSC / CVV</label>
+            <input id="csc" type="password"
+                   inputmode="numeric"
+                   placeholder="•••"
+                   autocomplete="cc-csc"
+                   maxlength="3" required>
+          </div>
+        </div>
+
+        <p class="aviso">
+         Contamos con métodos de pago verificados para ofrecerte 
+         una experiencia de compra segura, rápida y confiable.
+        </p>
+
+        <button type="submit" class="boton-pagar">
+          Continuar con el pedido
+        </button>
+
+        <button type="button" class="boton-volver" id="volver">
+          Volver a los diamantes
+        </button>
+
+        <p id="mensaje" class="mensaje" role="status"></p>
+      </form>
+    </section>
+  </div>
+<!--AQUI FINALIZA LAS RECARGA------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+
+
+
+
+
+
+
+
+<!--AQUI INICIA LOS METODO DE PAGO 2------------------------------------------------------------------------------------------------------------------------------------------------------------>
+<!-- PASO 3: MÉTODO DE PAGO -->
+
+
+<div class="transparente"> </div>
+<main class="contenedor">
+  <div class="paso-03">
+    3
+  
+</div>
+
+    <h1>Método de pago</h1>
+
+    <p class="descripcion">
+        🔒 Tu seguridad es nuestra prioridad. Realiza tu pago
+        con confianza, de forma fácil y segura.
+    </p>
+
+    <!-- MÉTODOS DE PAGO -->
+
+    <div class="metodos-pago">
+
+        <!-- PAYPAL -->
+
+        <button
+            type="button"
+            id="paypal-abrir"
+            class="paypal-imagen-boton"
+        >
+            <img src="logo/paypal.png" alt="PayPal">
+            <span>PayPal</span>
+        </button>
+
+        <!-- TARJETA DE CRÉDITO O DÉBITO -->
+
+        <a href="#tarje" class="tarjeta-pago">
+
+            <img
+                src="logo/tarjeta.png"
+                alt="Tarjeta de crédito o débito"
+            >
+
+            <span>Tarjeta de crédito o débito</span>
+
+        </a>
+
+    </div>
+
+</main>
+
+<!--AQUI TERMINA LOS METODO DE PAGO 2------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+
+
+
+
+
+
+
+<!--AQUI INICIA PAYPAL------------------------------------------------------------------------------------------------------------------------------------------------------------>
+  <main class="paypal-pagina">
+
+        <h1 class="paypal-titulo"></h1>
+
+        <p class="paypal-descripcion">
+           
+        </p>
+
+        <!-- IMAGEN DE PAYPAL -->
+      
+
+    </main>
+
+
+    <!-- VENTANA EXCLUSIVA DE PAYPAL -->
+    <div id="paypal-ventana" class="paypal-modal" aria-hidden="true">
+
+        <section class="paypal-panel">
+
+            <button
+                type="button"
+                id="paypal-cerrar"
+                class="paypal-cerrar"
+                aria-label="Cerrar"
+            >×</button>
+
+            <h2 class="paypal-subtitulo">
+                Elige tus diamantes
+            </h2>
+
+            <div id="paypal-paquetes" class="paypal-lista"></div>
+
+            <div class="paypal-resumen">
+
+                <p>
+                    Cantidad:
+                    <strong id="paypal-cantidad">0</strong>
+                </p>
+
+                <p>
+                    Total:
+                    <strong id="paypal-precio">US$0.00</strong>
+                </p>
+
+            </div>
+
+            <div id="paypal-botones"></div>
+
+            <p id="paypal-mensaje" role="status"></p>
+
+        </section>
+
+    </div>
+
+
+    <!-- REEMPLAZA TU_CLIENT_ID POR TU CLIENT ID PÚBLICO -->
+    <script src="https://www.paypal.com/sdk/js?client-id=BAA_-4e3jnfjA9LOL5A8yRTFExpvhQBXkOXf8zVjV33xEeIFiBBIqn5gpD9fxdXkRKiVGd0gr_qE7umDr0&currency=USD"></script>
+<!--AQUI TERMINA PAYPAL------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+
+
+
+
+
+
+<footer class="pie-garena">
+
+    <p class="copyright">
+        © OroPLus Bank. Todos los derechos reservados.
+    </p>
+
+    <nav class="enlaces-garena">
+        <a href="preguntas.html">Preguntas</a>
+        <span class="separador">|</span>
+
+        <a href="#">Help Center</a>
+        <span class="separador">|</span>
+
+        <a href="Terminos.html">Términos y Condiciones</a>
+        <span class="separador movil">|</span>
+
+        <a href="politica.html">Política de privacidad</a>
+    </nav>
+
+</footer>
+
+
+</body>
+</html>

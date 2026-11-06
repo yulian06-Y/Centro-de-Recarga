@@ -1,0 +1,3211 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  
+  --panel: #252631;
+  --boton: #343541;
+  --rojo: #ed302d;
+  --texto: #f4f4f7;
+  --secundario: #bfc0ca;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+}
+
+body {
+  background: #1b1c27;
+  color: var(--texto);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+
+
+/*AQUI  INICIA EL INICIO -----------------------------------------------------------------------------------------------------------*/
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ENCABEZADO */
+
+.encabezado {
+  min-height: 105px;
+  padding: 15px 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+  z-index: 5;
+
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+}
+
+.logo {
+  color: var(--rojo);
+  font-size: 49px;
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1;
+}
+
+.logo small {
+  display: block;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.separador {
+  height: 55px;
+  width: 3px;
+  background: #454550;
+}
+
+.titulo-marca {
+  font-size: clamp(15px, 2vw, 25px);
+  line-height: 1.25;
+}
+
+.controles {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.selector-superior {
+  background: #292a35;
+  border: 2px solid #393a46;
+  color: white;
+  border-radius: 16px;
+  padding: 13px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  max-width: 340px;
+  min-width: 0;
+  font-size: clamp(12px, 1.7vw, 20px);
+}
+
+#banderaSuperior {
+  font-size: 23px;
+}
+
+#regionSuperior {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#idiomaSuperior {
+  border-left: 2px solid #555560;
+  padding-left: 10px;
+}
+
+.perfil {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: none;
+  background: #454555;
+  color: #ddd;
+  font-size: 30px;
+}
+
+.perfil:hover,
+.selector-superior:hover {
+  background: #383944;
+}
+
+.menu-perfil {
+  position: absolute;
+  right: 4%;
+  top: 90px;
+  width: 245px;
+  background: var(--panel);
+  border: 1px solid #42434f;
+  border-radius: 12px;
+  padding: 9px;
+  box-shadow: 0 10px 30px #0008;
+  display: none;
+  z-index: 20;
+}
+
+.menu-perfil.visible {
+  display: block;
+}
+
+.menu-perfil button {
+  width: 100%;
+  text-align: left;
+  color: white;
+  background: transparent;
+  border: none;
+  padding: 14px;
+  border-radius: 7px;
+}
+
+.menu-perfil button:hover {
+  background: var(--boton);
+}
+
+/* CONTENIDO */
+
+.contenido {
+  max-width: 1350px;
+  margin: auto;
+  padding: 0 20px 30px;
+}
+
+/* CARRUSEL */
+
+.carrusel {
+  position: relative;
+  width: 100%;
+  margin: 24px auto 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #171a2b;
+}
+
+.carrusel-pista {
+  display: flex;
+  transition: transform .45s ease;
+}
+
+.diapo {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 16 / 7;
+  max-height: 430px;
+  overflow: hidden;
+  background: linear-gradient(120deg, #08213a, #25445d, #241d3e);
+}
+
+.diapo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.diapo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #07101cdd, #07101c55 65%, #07101c20);
+}
+
+.texto-diapo {
+  position: absolute;
+  z-index: 1;
+  left: 6%;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 60%;
+}
+
+.etiqueta {
+  display: inline-block;
+  background: var(--rojo);
+  padding: 10px 15px;
+  font-size: clamp(10px, 1.5vw, 18px);
+  font-weight: bold;
+  border-radius: 5px;
+  margin-bottom: 18px;
+}
+
+.texto-diapo h1 {
+  font-size: clamp(25px, 5vw, 58px);
+  line-height: 1.1;
+  margin-bottom: 15px;
+}
+
+.texto-diapo p {
+  font-size: clamp(13px, 2vw, 24px);
+  line-height: 1.5;
+  color: #e0e0e9;
+}
+
+.boton-principal {
+  background: var(--rojo);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 25px;
+  font-weight: bold;
+  margin-top: 22px;
+}
+
+.boton-principal:hover,
+.guardar:hover {
+  background: #c92523;
+}
+
+/* CARRUSEL SIN FLECHAS, CON DESLIZAMIENTO TÁCTIL */
+
+.carrusel {
+    overflow: hidden;
+    touch-action: pan-y;
+}
+
+.carrusel-pista {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+.diapo {
+    flex: 0 0 100%;
+    min-width: 0;
+}
+
+.diapo img {
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+/* Ocultar las flechas por si siguen presentes en el HTML */
+
+
+.puntos {
+  position: absolute;
+  z-index: 3;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 9px;
+}
+
+.punto {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff80;
+}
+
+.punto.activo {
+  background: var(--rojo);
+  transform: scale(1.25);
+}
+
+/* SELECCIÓN DE JUEGOS */
+
+.seleccion-juegos {
+
+  padding: 28px 5% 32px;
+  background:
+    repeating-linear-gradient(130deg, transparent 0 90px, #ffffff05 90px 95px),
+    linear-gradient(140deg, #191a30, #292a49);
+}
+
+.titulo-seccion {
+  font-size: clamp(28px, 4vw, 48px);
+  margin-bottom: 32px;
+}
+
+.juegos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  max-width: 800px;
+}
+.juegos a {
+  text-decoration: none;
+}
+
+.tarjeta-juego {
+  background: transparent;
+  color: #d5d5df;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
+  width: 100%;
+}
+
+.contenedor-icono {
+  position: relative;
+  width: clamp(90px, 16vw, 150px);
+  aspect-ratio: 1;
+  border-radius: 27px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #41465f, #24263b);
+}
+
+.contenedor-icono img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.icono-respaldo {
+  display: none;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  font-size: 55px;
+}
+
+.marca-seleccion {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 35px;
+  height: 35px;
+  background: var(--rojo);
+  color: white;
+  border-radius: 0 0 15px 0;
+  font-size: 23px;
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+.nombre-juego {
+  font-size: clamp(16px, 2.5vw, 30px);
+  line-height: 1.5;
+}
+
+.tarjeta-juego.seleccionado .contenedor-icono {
+  border: 4px solid var(--rojo);
+}
+
+.tarjeta-juego.seleccionado .marca-seleccion {
+  display: block;
+}
+
+.tarjeta-juego.seleccionado .nombre-juego {
+  color: #ed514e;
+  font-weight: bold;
+}
+
+/* RECARGA */
+
+.panel-recarga {
+  background: var(--fondo);
+  border-radius: 20px;
+  padding: 18px;
+  margin-top: 12px;
+}
+
+.banner-juego {
+  min-height: 125px;
+  background-image: url(logo/kutueve\ 0070.jpeg);
+background-size: 50%;
+
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.icono-pequeno {
+  width: 75px;
+  height: 75px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: #41465f;
+  font-size: 42px;
+}
+
+.banner-juego h2 {
+  font-size: 25px;
+  margin-bottom: 8px;
+}
+
+.pago-seguro {
+  background: #15151be8;
+  border: 1px solid #666;
+  padding: 7px 10px;
+  border-radius: 6px;
+}
+
+.paso-titulo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.paso-titulo span {
+  display: grid;
+  place-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 7px;
+  background: var(--rojo);
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.caja-jugador {
+  padding: 25px;
+  background: var(--panel);
+  border-radius: 12px;
+}
+
+.caja-jugador label {
+  display: block;
+  color: var(--secundario);
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.entrada-jugador {
+  display: flex;
+}
+
+.entrada-jugador input {
+  width: 100%;
+  min-width: 0;
+  padding: 17px;
+  color: white;
+  background: var(--boton);
+  border: 1px solid #454653;
+  border-radius: 10px 0 0 10px;
+  outline: none;
+}
+
+.entrada-jugador input:focus {
+  border-color: var(--rojo);
+}
+
+.entrada-jugador button {
+  padding: 15px 22px;
+  color: white;
+  background: var(--rojo);
+  border: none;
+  border-radius: 0 10px 10px 0;
+  font-weight: bold;
+}
+
+.aviso {
+  color: var(--secundario);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 18px;
+}
+
+.separador-login {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 28px 0 20px;
+  color: #aaaab8;
+  text-align: center;
+}
+
+.separador-login::before,
+.separador-login::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #494a56;
+}
+
+.redes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.redes button {
+  width: 53px;
+  height: 53px;
+  border-radius: 50%;
+  border: none;
+  font-size: 23px;
+  font-weight: bold;
+  background-color: #000000;
+
+  color: #ffffff;
+}
+
+ .google button{
+ background-color: #ffffff;
+ color: #10111a;
+}
+ .facebook button{
+ background-color: #1212d6;
+ color: #ffffff;
+}
+ .laX button{
+ background-color: #1212d6;
+ color: #ffffff;
+}
+
+
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  color: #999aa8;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* MODAL IDIOMA Y REGIÓN */
+
+.fondo-modal {
+  position: fixed;
+  inset: 0;
+  background: #0009;
+  z-index: 100;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.fondo-modal.abierto {
+  display: flex;
+}
+
+.modal {
+  background: var(--panel);
+  width: 100%;
+  max-width: 850px;
+  max-height: 90dvh;
+  border-radius: 17px 17px 0 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 -5px 30px #0004;
+  animation: subir .2s ease-out;
+}
+
+@keyframes subir {
+  from { transform: translateY(40px); opacity: .5; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-cabecera {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-bottom: 1px solid #41424d;
+  padding: 15px 55px;
+}
+
+.modal-cabecera h2 {
+  font-size: 25px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.cerrar {
+  position: absolute;
+  left: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #d4d4dd;
+  font-size: 34px;
+}
+
+.modal-contenido {
+  overflow-y: auto;
+  padding: 28px 30px 15px;
+}
+
+.etiqueta-grupo {
+  font-size: 19px;
+  color: #e0e0e8;
+  margin-bottom: 25px;
+}
+
+.idiomas,
+.regiones {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.idiomas {
+  margin-bottom: 42px;
+}
+
+.opcion {
+  min-height: 68px;
+  border: 2px solid transparent;
+  background: var(--boton);
+  border-radius: 12px;
+  color: #dedee6;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  font-size: 18px;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.opcion:hover {
+  background: #40414d;
+}
+
+.opcion.seleccionada {
+  border-color: var(--rojo);
+  background: #30252c;
+  color: white;
+}
+
+.bandera {
+  font-size: 27px;
+  flex-shrink: 0;
+}
+
+.nombre-pais {
+  overflow-wrap: anywhere;
+}
+
+.modal-pie {
+  padding: 15px 30px 25px;
+  background: var(--panel);
+}
+
+.guardar {
+  width: 100%;
+  min-height: 64px;
+  border: none;
+  border-radius: 10px;
+  background: var(--rojo);
+  color: white;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.mensaje {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #30313c;
+  color: white;
+  padding: 14px 22px;
+  border: 1px solid #555663;
+  border-radius: 9px;
+  z-index: 200;
+  width: max-content;
+  max-width: 90%;
+  display: none;
+  box-shadow: 0 5px 25px #0006;
+}
+
+.mensaje.visible {
+  display: block;
+}
+
+/* TABLET Y TELÉFONO */
+
+@media (max-width: 650px) {
+  .encabezado {
+    min-height: 100px;
+    padding: 12px 3%;
+    gap: 8px;
+  }
+
+  .marca {
+    gap: 9px;
+  }
+
+  .logo {
+    font-size: 34px;
+  }
+
+  .logo small {
+    font-size: 10px;
+    margin-top: 5px;
+  }
+
+  .separador {
+    height: 48px;
+    width: 2px;
+  }
+
+  .titulo-marca {
+    font-size: clamp(12px, 3vw, 18px);
+  }
+
+  .controles {
+    gap: 6px;
+  }
+
+  .selector-superior {
+    max-width: 180px;
+    padding: 10px 7px;
+    gap: 5px;
+    border-radius: 11px;
+  }
+
+  #banderaSuperior {
+    font-size: 18px;
+  }
+
+  #idiomaSuperior {
+    padding-left: 6px;
+  }
+
+  .perfil {
+    width: 39px;
+    height: 39px;
+    font-size: 23px;
+  }
+
+  .menu-perfil {
+    top: 85px;
+  }
+
+  .contenido {
+    padding: 0 12px 22px;
+  }
+
+  .carrusel {
+    margin-top: 14px;
+  }
+
+  .diapo {
+    aspect-ratio: 4 / 3;
+  }
+
+  .texto-diapo {
+    left: 6%;
+    max-width: 77%;
+  }
+
+  .etiqueta {
+    padding: 7px 9px;
+    margin-bottom: 10px;
+  }
+
+  .texto-diapo h1 {
+    font-size: clamp(24px, 6vw, 39px);
+  }
+
+  .texto-diapo p {
+    font-size: 13px;
+  }
+
+  .boton-principal {
+    padding: 12px 15px;
+    margin-top: 14px;
+  }
+
+  .flecha-carrusel {
+    width: 30px;
+    height: 43px;
+    font-size: 28px;
+  }
+
+  .seleccion-juegos {
+    margin: 0 -12px;
+    padding: 25px 5% 30px;
+  }
+
+  .titulo-seccion {
+    margin-bottom: 24px;
+  }
+
+  .juegos {
+    gap: 16px;
+  }
+
+  .contenedor-icono {
+    width: clamp(75px, 23vw, 120px);
+    border-radius: 20px;
+  }
+
+  .nombre-juego {
+    font-size: clamp(13px, 3.5vw, 21px);
+  }
+
+  .panel-recarga {
+    padding: 12px;
+  }
+
+  .banner-juego {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .icono-pequeno {
+    width: 57px;
+    height: 57px;
+    font-size: 30px;
+  }
+
+  .banner-juego h2 {
+    font-size: 20px;
+  }
+
+  .caja-jugador {
+    padding: 15px;
+  }
+
+  .entrada-jugador input {
+    padding: 12px;
+  }
+
+  .entrada-jugador button {
+    padding: 12px;
+  }
+
+  .modal {
+    max-height: 90dvh;
+  }
+
+  .modal-contenido {
+    padding: 25px 20px 15px;
+  }
+
+  .opcion {
+    min-height: 65px;
+    padding: 9px;
+    font-size: 15px;
+    gap: 7px;
+  }
+
+  .bandera {
+    font-size: 22px;
+  }
+
+  .modal-pie {
+    padding: 12px 20px 22px;
+  }
+}
+
+@media (max-width: 370px) {
+  .titulo-marca {
+    font-size: 11px;
+  }
+
+  .selector-superior {
+    max-width: 125px;
+    font-size: 11px;
+  }
+
+  .perfil {
+    width: 32px;
+    height: 32px;
+  }
+
+  .contenedor-icono {
+    width: 72px;
+    border-radius: 15px;
+  }
+
+  .juegos {
+    gap: 10px;
+  }
+
+  .nombre-juego {
+    font-size: 12px;
+  }
+
+  .modal-contenido {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .modal-pie {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+.pie{
+  position: relative;
+  left: 43%;
+}
+/*AQUI  TERMINA EL INICIO -----------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*AQUI  INICIA LA RECARGA -----------------------------------------------------------------------------------------------------------*/
+.paso-02{
+  display: grid;
+  place-items: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 7px;
+  background: var(--rojo);
+  font-size: 25px;
+  font-weight: bold;
+  position: relative;
+font-size: 30px;
+
+
+}
+.contenedor {
+  max-width: 1200px;
+  margin: auto;
+}
+
+h1 {
+  font-size: clamp(25px, 4vw, 38px);
+  margin-bottom: 12px;
+  position: relative;
+  right: 3%;
+
+}
+
+.descripcion {
+  color: #b8b8c8;
+  margin-bottom: 28px;
+  position: relative;
+  left: 6%;
+}
+
+.diamantes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.boton-diamante {
+  max-width: 350px;
+  min-height: 150px;
+  padding: 20px;
+  border: 1px solid #41414f;
+  border-radius: 18px;
+  background: #343440;
+  color: white;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.boton-diamante:hover {
+  border-color: #42c7ff;
+  background: #414151;
+  transform: translateY(-3px);
+}
+
+.cantidad {
+  display: block;
+  font-size: clamp(24px, 3vw, 35px);
+  margin-bottom: 12px;
+}
+
+.precio {
+  display: block;
+  font-size: 18px;
+  color: #55ceff;
+  font-weight: bold;
+}
+
+/* Fondo transparente por encima de toda la página */
+
+.fondo-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(5, 5, 12, .78);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  overflow-y: auto;
+}
+
+.fondo-modal.abierto {
+  display: flex;
+}
+
+.ventana-pago {
+  position: relative;
+ 
+  width: 100%;
+  max-width: 620px;
+height: 700px;
+  overflow-y: auto;
+  padding: 30px;
+  border: 1px solid #444454;
+  border-radius: 20px;
+  background: #242430;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, .55);
+  animation: aparecer .22s ease;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.ventana-pago h2 {
+  font-size: 27px;
+  padding-right: 25px;
+  margin-bottom: 8px;
+}
+
+.subtitulo {
+  color: #b7b7c6;
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+.cerrar {
+  position: absolute;
+  top: 15px;
+  right: 17px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.resumen {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  padding: 17px;
+  margin-bottom: 25px;
+  background: #343442;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.resumen span {
+  color: #c4c4d2;
+}
+
+.resumen strong {
+  text-align: right;
+}
+
+#precioElegido {
+  color: #55ceff;
+}
+
+.ventana-pago h3 {
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+
+.campo {
+  min-width: 0;
+  margin-bottom: 17px;
+}
+
+.campo label {
+  display: block;
+  margin-bottom: 8px;
+  color: #dedee8;
+  font-size: 13px;
+}
+
+.campo input {
+  width: 100%;
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid #4b4b5d;
+  border-radius: 9px;
+  outline: none;
+  background: #191923;
+  color: white;
+  font-size: 15px;
+}
+
+.campo input:focus {
+  border-color: #55ceff;
+  box-shadow: 0 0 0 2px rgba(85, 206, 255, .12);
+}
+
+.campo input::placeholder {
+  color: #777787;
+}
+
+.dos-columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.aviso {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #c6c6d4;
+  margin: 3px 0 18px;
+}
+
+.boton-pagar,
+.boton-volver {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.boton-pagar {
+  background: #168dc2;
+  color: white;
+}
+
+.boton-pagar:hover {
+  background: #0875a7;
+}
+
+.boton-volver {
+  margin-top: 10px;
+  background: #383846;
+  color: white;
+}
+
+.mensaje {
+  margin-top: 15px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #8fddff;
+}
+
+body.modal-abierto {
+  overflow: hidden;
+}
+
+@media (max-width: 750px) {
+  body {
+    padding: 25px 16px;
+  }
+
+  .diamantes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .boton-diamante {
+    min-height: 125px;
+    padding: 12px 5px;
+  }
+
+  .ventana-pago {
+    padding: 24px 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  .dos-columnas {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+.diamantes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.boton-diamante {
+  width: 90%;
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  position: relative;
+  left: 5%;
+}
+
+.cantidad {
+  display: block;
+  width: 100%;
+  font-size: clamp(20px, 2.5vw, 32px);
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.precio {
+  display: block;
+  width: 100%;
+  font-size: clamp(16px, 2vw, 22px);
+  color: #00d9ff;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 750px) {
+  .diamantes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .diamantes {
+    grid-template-columns: 1fr;
+  }
+}
+/*AQUI  TERMINA LA RECARGA -----------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*AQUI INICIA EL METODO DE PAGO -----------------------------------------------------------------------------------------------------------*/
+
+.tarjetadecredito{
+  position: relative;
+  left: 57%;
+width: 30%;
+bottom: 88px;
+  height: 140px;
+}
+.tarjeta001{
+  position: relative;
+  left: 50%;
+  bottom: 110px;
+  font-size: 30px;
+
+}
+.tarjeta001 a{
+  text-decoration: none;
+   color: #ffffff;
+}
+
+/*AQUI TERMINA EL METODO DE PAGO -----------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+.transparente{
+  background-color: #e64d06;
+  width: 100%;
+font-size: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*AQUI INICIA PAYPAL-----------------------------------------------------------------------------------------------------------*/
+.paso-03{
+  display: grid;
+  place-items: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 7px;
+  background: var(--rojo);
+  font-size: 25px;
+  font-weight: bold;
+  position: relative;
+font-size: 30px;
+}
+
+.contenedor,
+.contenedor * {
+    box-sizing: border-box;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 25px 0 40px;
+    color: #ffffff;
+    text-align: center;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+/* TÍTULO */
+
+.contenedor h1 {
+    margin: 0 0 15px;
+    padding: 0 10px;
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* DESCRIPCIÓN */
+
+.contenedor .descripcion {
+    margin: 0 10px 25px;
+    color: #bfc0ca;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* =========================================
+   CONTENEDOR DE MÉTODOS
+   AMBOS MÉTODOS DE LADO
+========================================= */
+
+.metodos-pago {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 12px;
+
+    width: 100%;
+    padding: 0 12px;
+}
+
+/* =========================================
+   BOTÓN PAYPAL
+========================================= */
+
+#paypal-abrir {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 220px;
+    margin: 0;
+    padding: 15px;
+
+    background: #777994;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 10px;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: background 0.25s, box-shadow 0.25s;
+}
+
+/* LOGO PAYPAL */
+
+#paypal-abrir img {
+    display: block;
+
+    width: 75px;
+    height: 75px;
+    max-width: 100%;
+
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* TEXTO PAYPAL */
+
+#paypal-abrir span {
+    display: block;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* EFECTO PAYPAL */
+
+#paypal-abrir:hover {
+    background: #8588a8;
+    box-shadow: 0 0 18px #168de233;
+}
+
+/* =========================================
+   TARJETA DE CRÉDITO O DÉBITO
+========================================= */
+
+.tarjeta-pago {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 220px;
+    margin: 0;
+    padding: 15px;
+
+    background: #777994;
+    color: #ffffff;
+
+    border-radius: 10px;
+    text-decoration: none;
+
+    transition: background 0.25s, box-shadow 0.25s;
+}
+
+/* IMAGEN DE TARJETA */
+
+.tarjeta-pago img {
+    display: block;
+
+    width: 100%;
+    max-width: 170px;
+    height: 115px;
+
+    object-fit: contain;
+    object-position: center;
+}
+
+/* TEXTO DE TARJETA */
+
+.tarjeta-pago span {
+    display: block;
+
+    width: 100%;
+    color: #ffffff;
+
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 1.4;
+
+    text-align: center;
+}
+
+/* EFECTO TARJETA */
+
+.tarjeta-pago:hover {
+    background: #8588a8;
+    box-shadow: 0 0 18px #168de233;
+}
+
+.tarjeta-pago:hover span {
+    color: #ffffff;
+}
+
+/* =========================================
+   VENTANA MODAL DE PAYPAL
+========================================= */
+
+#paypal-ventana,
+#paypal-ventana * {
+    box-sizing: border-box;
+}
+
+.paypal-pagina {
+    width: 100%;
+    max-width: 850px;
+    margin: 70px auto;
+    padding: 25px;
+    text-align: center;
+}
+
+.paypal-modal {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    padding: 20px;
+    overflow-y: auto;
+
+    font-family: "Franklin Gothic Medium",
+                 "Arial Narrow", Arial, sans-serif;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(5, 9, 18, 0.92);
+}
+
+.paypal-modal.paypal-activo {
+    display: flex;
+}
+
+.paypal-panel {
+    position: relative;
+
+    width: 100%;
+    max-width: 720px;
+    margin: auto;
+    padding: 30px;
+
+    color: #f3f6ff;
+    background: #242430;
+
+    border: 1px solid #383c42;
+    border-radius: 20px;
+
+    box-shadow: 0 15px 60px #00000066;
+}
+
+.paypal-subtitulo {
+    padding-right: 30px;
+    margin-bottom: 25px;
+
+    font-family: Georgia, serif;
+    font-size: 26px;
+}
+
+/* BOTÓN CERRAR */
+
+.paypal-cerrar {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+
+    width: 38px;
+    height: 38px;
+
+    border: 0;
+    background: transparent;
+    color: #ffffff;
+
+    font-size: 32px;
+    cursor: pointer;
+}
+
+/* =========================================
+   PAQUETES DE DIAMANTES
+========================================= */
+
+.paypal-lista {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.paypal-paquete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    min-width: 0;
+    min-height: 115px;
+    padding: 18px 10px;
+
+    color: #ffffff;
+    background: #777994;
+
+    border: 2px solid transparent;
+    border-radius: 13px;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.paypal-paquete:hover {
+    border-color: #168de2;
+}
+
+.paypal-paquete.paypal-elegido {
+    border-color: #168de2;
+    background: #203d5c;
+}
+
+.paypal-paquete-cantidad {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.paypal-paquete-precio {
+    color: #37d8ff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* =========================================
+   RESUMEN DEL PEDIDO
+========================================= */
+
+.paypal-resumen {
+    margin: 25px 0;
+    padding: 18px;
+
+    background: #0e1522;
+    border-radius: 12px;
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.paypal-resumen strong {
+    color: #37d8ff;
+}
+
+#paypal-botones {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto 0;
+}
+
+#paypal-mensaje {
+    margin-top: 15px;
+    color: #b9c9df;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   ADAPTACIÓN PARA TELÉFONOS
+========================================= */
+
+@media (max-width: 480px) {
+
+    .contenedor {
+        padding: 20px 0 30px;
+    }
+
+    .contenedor h1 {
+        font-size: 27px;
+    }
+
+    .contenedor .descripcion {
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+
+    /* MÉTODOS UNO AL LADO DEL OTRO */
+
+    .metodos-pago {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        padding: 0 8px;
+    }
+
+    #paypal-abrir,
+    .tarjeta-pago {
+        min-height: 165px;
+        padding: 10px 5px;
+        gap: 10px;
+        border-radius: 8px;
+    }
+
+    #paypal-abrir {
+        font-size: 16px;
+    }
+
+    #paypal-abrir img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .tarjeta-pago img {
+        width: 100%;
+        max-width: 115px;
+        height: 80px;
+    }
+
+    .tarjeta-pago span {
+        font-size: 13px;
+    }
+
+    /* VENTANA MODAL */
+
+    .paypal-pagina {
+        margin: 25px auto;
+        padding: 12px;
+    }
+
+    .paypal-panel {
+        padding: 25px 12px;
+    }
+
+    .paypal-subtitulo {
+        font-size: 22px;
+    }
+
+    /* PAQUETES DE DIAMANTES */
+
+    .paypal-lista {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+    }
+
+    .paypal-paquete {
+        min-height: 100px;
+        padding: 12px 5px;
+    }
+
+    .paypal-paquete-cantidad {
+        font-size: 18px;
+    }
+
+    .paypal-paquete-precio {
+        font-size: 16px;
+    }
+}
+/*AQUI TERMINA PAYPAL-----------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*AQUI INICIA EL FIN-----------------------------------------------------------------------------------------------------------*/
+
+.pie-garena {
+    width: 100%;
+    padding: 80px 20px;
+    background: #1b1b26;
+    color: #a5a5b0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    position: relative;
+    bottom: 150px;
+
+}
+
+/* DERECHOS RESERVADOS */
+
+.pie-garena .copyright {
+    font-size: 22px;
+    margin: 0 0 30px;
+    line-height: 1.6;
+}
+
+/* ENLACES */
+
+.enlaces-garena {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.enlaces-garena a {
+    color: #a5a5b0;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.enlaces-garena a:hover {
+    color: #ffffff;
+}
+
+.separador {
+    color: #484853;
+    font-size: 24px;
+}
+
+.movil {
+    display: none;
+}
+
+/* ADAPTACIÓN A TELÉFONOS */
+
+@media (max-width: 600px) {
+
+    .pie-garena {
+        padding: 35px 15px;
+    }
+
+    .pie-garena .copyright {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    .enlaces-garena {
+        gap: 12px;
+    }
+
+    .enlaces-garena a {
+        font-size: 14px;
+    }
+
+    .separador {
+        font-size: 16px;
+    }
+
+    .movil {
+        display: inline;
+    }
+}
+/*AQUI TERMINA EL FIN-----------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*AQUI INICIA LA MEDIDA-----------------------------------------------------------------------------------------------------------*/
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: clip;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+button,
+input {
+    max-width: 100%;
+    min-width: 0;
+}
+
+.contenido,
+.contenedor,
+.panel-recarga {
+    width: 100%;
+    max-width: 1350px;
+    min-width: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ENCABEZADO */
+
+.encabezado {
+    width: 100%;
+    min-width: 0;
+    flex-wrap: wrap;
+}
+
+.marca,
+.controles {
+    min-width: 0;
+}
+
+.titulo-marca {
+    overflow-wrap: anywhere;
+}
+
+.selector-superior {
+    min-width: 0;
+}
+
+#idiomaSuperior,
+#regionSuperior {
+    min-width: 0;
+}
+
+/* CARRUSEL: MEDIDAS ADAPTADAS A TODAS LAS PANTALLAS */
+
+.carrusel {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 24px auto 0;
+    overflow: hidden;
+    border-radius: 12px;
+    aspect-ratio: 16 / 7;
+    height: auto;
+    max-height: none;
+}
+
+.carrusel-pista {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+}
+
+.diapo {
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    max-height: none;
+    overflow: hidden;
+}
+
+.diapo img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.diapo::after {
+    pointer-events: none;
+}
+
+.texto-diapo {
+    left: 6%;
+    right: auto;
+    max-width: 70%;
+    min-width: 0;
+}
+
+.texto-diapo h1 {
+    position: static;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.texto-diapo p {
+    overflow-wrap: anywhere;
+}
+
+.flecha-carrusel {
+    z-index: 4;
+}
+
+.puntos {
+    z-index: 4;
+}
+
+/* SELECCIÓN DE JUEGOS */
+
+.seleccion-juegos {
+    width: 100%;
+    min-width: 0;
+}
+
+.juegos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    max-width: 800px;
+    gap: clamp(10px, 3vw, 30px);
+}
+
+.tarjeta-juego {
+    width: 100%;
+    min-width: 0;
+}
+
+.contenedor-icono {
+    width: clamp(70px, 13vw, 150px);
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.contenedor-icono img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nombre-juego {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+/* BANNER DE RECARGA */
+
+.banner-juego {
+    width: 100%;
+    min-width: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner-juego h2 {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.icono-pequeno {
+    flex-shrink: 0;
+}
+
+/* FORMULARIO DEL JUGADOR */
+
+.caja-jugador {
+    width: 100%;
+    min-width: 0;
+}
+
+.entrada-jugador {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+}
+
+.entrada-jugador input {
+    flex: 1 1 0;
+    width: 0;
+    min-width: 0;
+}
+
+.entrada-jugador button {
+    flex: 0 0 auto;
+    max-width: 45%;
+    overflow-wrap: anywhere;
+}
+
+/* TARJETAS DE DIAMANTES */
+
+.diamantes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    max-width: 100%;
+    gap: clamp(10px, 2vw, 22px);
+}
+
+.boton-diamante {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    min-height: 150px;
+    padding: 18px 10px;
+    overflow-wrap: anywhere;
+}
+
+.cantidad {
+    width: 100%;
+    font-size: clamp(18px, 2.5vw, 32px);
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.precio {
+    width: 100%;
+    font-size: clamp(15px, 1.8vw, 22px);
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+/* TÍTULOS Y DESCRIPCIONES DE RECARGA */
+
+.paso-titulp span {
+    position: static;
+    flex-shrink: 0;
+}
+
+.descripcion {
+    position: static;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.contenedor > h1 {
+    position: static;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+/* VENTANA DE PAGO */
+
+.fondo-modal {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
+}
+
+.ventana-pago {
+    position: relative;
+    width: 100%;
+    max-width: 620px;
+    height: auto;
+    max-height: 90dvh;
+    min-width: 0;
+    margin: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: clamp(16px, 4vw, 30px);
+}
+
+.campo {
+    width: 100%;
+    min-width: 0;
+}
+
+.campo input {
+    width: 100%;
+    min-width: 0;
+}
+
+.dos-columnas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.dos-columnas > * {
+    min-width: 0;
+}
+
+/* MÉTODO DE PAGO */
+
+.tarjetadecredito {
+    position: static;
+    display: block;
+    width: min(100%, 300px);
+    height: auto;
+    margin: 20px auto;
+}
+
+.tarjeta001 {
+    position: static;
+    margin: 15px auto;
+    font-size: clamp(20px, 3vw, 30px);
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+/* PAYPAL */
+
+.paypal-pagina {
+    width: 100%;
+    max-width: 850px;
+    margin: 40px auto;
+    padding: clamp(12px, 3vw, 25px);
+}
+
+.paypal-imagen-boton {
+    position: static;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin: 20px auto;
+    overflow-wrap: anywhere;
+}
+
+.paypal-imagen-boton img {
+    max-width: 100%;
+    height: auto;
+}
+
+.paypal-modal {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
+}
+
+.paypal-panel {
+    width: 100%;
+    max-width: 720px;
+    min-width: 0;
+    max-height: 90dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: clamp(16px, 4vw, 30px);
+}
+
+.paypal-lista {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.paypal-paquete {
+    width: 100%;
+    min-width: 0;
+}
+
+#paypal-botones {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* PIE DE PÁGINA */
+
+.pie-garena {
+    position: relative;
+    bottom: auto;
+    width: 100%;
+    margin-top: 30px;
+    padding: clamp(30px, 5vw, 80px) 20px;
+}
+
+.pie-garena .copyright {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.enlaces-garena {
+    width: 100%;
+    gap: clamp(10px, 2vw, 20px);
+}
+
+.enlaces-garena a {
+    overflow-wrap: anywhere;
+}
+
+/* TABLETS Y TELÉFONOS */
+
+@media (max-width: 750px) {
+
+    .encabezado {
+        padding: 12px 3%;
+        gap: 8px;
+    }
+
+    .contenido {
+        padding: 0 12px 22px;
+    }
+
+    /* El carrusel conserva la proporción 16:7 */
+    .carrusel {
+        width: 100%;
+        aspect-ratio: 16 / 7;
+        margin-top: 14px;
+    }
+
+    .diapo {
+        width: 100%;
+        min-width: 100%;
+        height: 100%;
+        aspect-ratio: auto;
+    }
+
+    .diapo img {
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .texto-diapo {
+        left: 5%;
+        max-width: 75%;
+    }
+
+    .texto-diapo h1 {
+        font-size: clamp(17px, 4.5vw, 32px);
+    }
+
+    .texto-diapo p {
+        font-size: clamp(10px, 1.8vw, 15px);
+        line-height: 1.35;
+    }
+
+    .etiqueta {
+        padding: 5px 8px;
+        margin-bottom: 7px;
+        font-size: clamp(9px, 1.5vw, 13px);
+    }
+
+    .boton-principal {
+        margin-top: 8px;
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+    .flecha-carrusel {
+        width: 30px;
+        height: 40px;
+        font-size: 25px;
+    }
+
+    .puntos {
+        bottom: 8px;
+        gap: 6px;
+    }
+
+    .punto {
+        width: 8px;
+        height: 8px;
+    }
+
+    .seleccion-juegos {
+        margin: 0;
+        padding: 24px 4%;
+    }
+
+    .juegos {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .contenedor-icono {
+        width: 100%;
+        max-width: 120px;
+    }
+
+    .nombre-juego {
+        font-size: clamp(12px, 2.5vw, 20px);
+    }
+
+    .panel-recarga {
+        padding: 12px;
+    }
+
+    .diamantes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .boton-diamante {
+        min-height: 125px;
+    }
+
+    .ventana-pago {
+        max-width: 490px;
+    }
+
+    .paypal-pagina {
+        margin: 25px auto;
+    }
+}
+
+/* TELÉFONOS PEQUEÑOS */
+
+@media (max-width: 480px) {
+
+    .encabezado {
+        flex-wrap: nowrap;
+    }
+
+    .marca {
+        gap: 7px;
+    }
+
+    .logo {
+        font-size: 30px;
+    }
+
+    .logo small {
+        font-size: 9px;
+    }
+
+    .separador {
+        flex-shrink: 0;
+    }
+
+    .titulo-marca {
+        font-size: clamp(10px, 2.8vw, 14px);
+    }
+
+    .controles {
+        gap: 5px;
+    }
+
+    .selector-superior {
+        max-width: 135px;
+        padding: 8px 5px;
+        gap: 4px;
+        font-size: 11px;
+    }
+
+    #banderaSuperior {
+        font-size: 15px;
+    }
+
+    #idiomaSuperior {
+        padding-left: 4px;
+    }
+
+    .perfil {
+        width: 34px;
+        height: 34px;
+        font-size: 20px;
+    }
+
+    .menu-perfil {
+        top: 75px;
+        max-width: 90vw;
+    }
+
+    /* Carrusel de la misma proporción que en PC */
+    .carrusel {
+        aspect-ratio: 16 / 7;
+        border-radius: 8px;
+    }
+
+    .texto-diapo {
+        left: 5%;
+        max-width: 78%;
+    }
+
+    .texto-diapo h1 {
+        font-size: clamp(15px, 4.2vw, 22px);
+        margin-bottom: 5px;
+    }
+
+    .texto-diapo p {
+        font-size: clamp(9px, 2.2vw, 12px);
+        line-height: 1.25;
+    }
+
+    .etiqueta {
+        font-size: 9px;
+        padding: 4px 6px;
+        margin-bottom: 5px;
+    }
+
+    .boton-principal {
+        padding: 7px 9px;
+        font-size: 10px;
+        margin-top: 5px;
+    }
+
+    .flecha-carrusel {
+        width: 25px;
+        height: 34px;
+        font-size: 22px;
+    }
+
+    .anterior {
+        left: 4px;
+    }
+
+    .siguiente {
+        right: 4px;
+    }
+
+    .puntos {
+        bottom: 5px;
+    }
+
+    .titulo-seccion {
+        font-size: 25px;
+    }
+
+    .contenedor-icono {
+        max-width: 100px;
+        border-radius: 14px;
+    }
+
+    .nombre-juego {
+        font-size: 12px;
+    }
+
+    .banner-juego {
+        gap: 9px;
+        padding: 10px;
+    }
+
+    .banner-juego h2 {
+        font-size: 17px;
+    }
+
+    .icono-pequeno {
+        width: 48px;
+        height: 48px;
+        font-size: 25px;
+    }
+
+    .caja-jugador {
+        padding: 12px;
+    }
+
+    .caja-jugador label {
+        font-size: 16px;
+    }
+
+    .entrada-jugador input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .entrada-jugador button {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+
+    .dos-columnas {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .ventana-pago {
+        padding: 20px 14px;
+        max-height: 88dvh;
+    }
+
+    .ventana-pago h2 {
+        font-size: 23px;
+    }
+
+    .resumen {
+        padding: 12px;
+        gap: 8px;
+        font-size: 12px;
+        overflow-wrap: anywhere;
+    }
+
+    .paypal-panel {
+        padding: 22px 12px;
+    }
+
+    .paypal-subtitulo {
+        font-size: 20px;
+    }
+
+    .paypal-paquete-cantidad {
+        font-size: 16px;
+        overflow-wrap: anywhere;
+    }
+
+    .paypal-paquete-precio {
+        font-size: 15px;
+    }
+
+    .pie-garena {
+        padding: 30px 12px;
+    }
+
+    .pie-garena .copyright {
+        font-size: 13px;
+    }
+
+    .enlaces-garena a {
+        font-size: 12px;
+    }
+}
+
+/* TELÉFONOS MUY ESTRECHOS */
+
+@media (max-width: 360px) {
+
+    .contenido {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    .titulo-marca {
+        font-size: 9px;
+    }
+
+    .selector-superior {
+        max-width: 105px;
+        font-size: 10px;
+    }
+
+    .perfil {
+        width: 30px;
+        height: 30px;
+        font-size: 17px;
+    }
+
+    .carrusel {
+        aspect-ratio: 16 / 7;
+    }
+
+    .texto-diapo h1 {
+        font-size: 15px;
+    }
+
+    .texto-diapo p {
+        font-size: 9px;
+    }
+
+    .boton-principal {
+        padding: 6px 7px;
+        font-size: 9px;
+    }
+
+    .juegos {
+        gap: 7px;
+    }
+
+    .nombre-juego {
+        font-size: 11px;
+    }
+
+    .diamantes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .boton-diamante {
+        padding: 10px 5px;
+        min-height: 110px;
+    }
+
+    .cantidad {
+        font-size: 18px;
+    }
+
+    .precio {
+        font-size: 14px;
+    }
+
+    .paypal-lista {
+        gap: 7px;
+    }
+
+    .paypal-paquete {
+        padding: 10px 4px;
+    }
+}
+
+/*AQUI TERMINA LA MEDIDA-----------------------------------------------------------------------------------------------------------*/
+
+
+/* =========================================================
+   CORRECCIÓN DE CANTIDAD DE RECARGA Y MÉTODO DE PAGO
+   ========================================================= */
+
+/* CONTENEDOR DE LA RECARGA */
+
+.contenedor {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px 20px;
+    color: #f4f4f7;
+}
+
+/* TÍTULOS */
+
+.contenedor > h1 {
+    position: static;
+    margin: 0 0 12px;
+    font-size: clamp(25px, 3.5vw, 42px);
+    line-height: 1.2;
+    color: #f4f4f7;
+}
+
+/* BOTONES ROJOS 2 Y 3 */
+
+.paso-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    margin: 0 0 20px;
+}
+
+.paso-titulo span,
+.paso-titulp span {
+    position: static;
+    flex: 0 0 65px;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ed302d;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 12px;
+
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+/* TÍTULO DE CADA PASO */
+
+.paso-titulo h2,
+.paso-titulp h2 {
+    margin: 0;
+    color: #f4f4f7;
+    font-size: clamp(25px, 3.5vw, 42px);
+    line-height: 1.2;
+}
+
+/* DESCRIPCIÓN */
+
+.descripcion {
+    position: static;
+    margin: 0 0 25px;
+    color: #bfc0ca;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* CUADRÍCULA DE DIAMANTES */
+
+.diamantes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+}
+
+/* TARJETAS DE DIAMANTES */
+
+.boton-diamante {
+    position: static;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    min-height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 20px 12px;
+
+    color: #f4f4f7;
+    background: #343541;
+    border: 2px solid #3c3d49;
+    border-radius: 18px;
+
+    text-align: center;
+    transition: 0.2s ease;
+}
+
+.boton-diamante:hover {
+    background: #3d3e4d;
+    border-color: #42c7ff;
+    transform: translateY(-3px);
+}
+
+/* CANTIDAD */
+
+.cantidad {
+    display: block;
+    width: 100%;
+    margin: 0;
+    color: #f4f4f7;
+    font-size: clamp(24px, 2.8vw, 36px);
+    font-weight: 500;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+/* PRECIO */
+
+.precio {
+    display: block;
+    width: 100%;
+    margin: 0;
+    color: #00d9ff;
+    font-size: clamp(17px, 2vw, 23px);
+    font-weight: 800;
+    line-height: 1.4;
+    text-align: center;
+    white-space: normal;
+}
+
+/* =========================================================
+   MÉTODO DE PAGO
+   ========================================================= */
+
+/* CONTENEDOR DE PAYPAL */
+
+.paypal-pagina {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0;
+    text-align: center;
+}
+
+/* BOTÓN PAYPAL */
+
+.paypal-imagen-boton {
+    position: static;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    min-height: 180px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+
+    margin: 0;
+    padding: 25px;
+
+    background: #343541;
+    color: #f4f4f7;
+    border: 2px solid #3c3d49;
+    border-radius: 18px;
+
+    font-size: clamp(24px, 3vw, 36px);
+}
+
+/* IMAGEN DE PAYPAL */
+
+.paypal-imagen-boton img {
+    display: block;
+    width: 140px;
+    max-width: 45%;
+    height: auto;
+    max-height: 90px;
+    object-fit: contain;
+}
+
+/* EFECTO PAYPAL */
+
+.paypal-imagen-boton:hover {
+    background: #3d3e4d;
+    box-shadow: none;
+    transform: none;
+}
+
+/* TARJETA DE CRÉDITO O DÉBITO */
+
+.tarjetadecredito {
+    position: static;
+    display: block;
+    width: 100%;
+    max-width: 180px;
+    height: 100px;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* TEXTO DE LA TARJETA */
+
+.tarjeta001 {
+    position: static;
+    width: 100%;
+    margin: 12px 0 0;
+    color: #ffffff;
+    font-size: clamp(20px, 2.5vw, 30px);
+    line-height: 1.4;
+    text-align: center;
+}
+
+.tarjeta001 a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* =========================================================
+   TABLETS
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+    .contenedor {
+        padding: 20px 14px;
+    }
+
+    .paso-titulo {
+        gap: 14px;
+    }
+
+    .paso-titulo span,
+    .paso-titulp span {
+        flex-basis: 55px;
+        width: 55px;
+        height: 55px;
+        font-size: 34px;
+        border-radius: 10px;
+    }
+
+    .paso-titulo h2,
+    .paso-titulp h2 {
+        font-size: clamp(23px, 4vw, 32px);
+    }
+
+    .diamantes {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .boton-diamante {
+        min-height: 120px;
+        padding: 14px 6px;
+    }
+
+    .cantidad {
+        font-size: clamp(19px, 3vw, 27px);
+    }
+
+    .precio {
+        font-size: clamp(15px, 2.5vw, 20px);
+    }
+
+    .paypal-imagen-boton {
+        min-height: 140px;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .paypal-imagen-boton img {
+        width: 100px;
+    }
+}
+
+/* =========================================================
+   TELÉFONOS
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .contenedor {
+        padding: 18px 10px;
+    }
+
+    .paso-titulo {
+        gap: 12px;
+        margin-bottom: 18px;
+    }
+
+    .paso-titulo span,
+    .paso-titulp span {
+        flex-basis: 45px;
+        width: 45px;
+        height: 45px;
+        font-size: 29px;
+        border-radius: 9px;
+    }
+
+    .paso-titulo h2,
+    .paso-titulp h2 {
+        font-size: clamp(21px, 5.5vw, 27px);
+    }
+
+    .descripcion {
+        font-size: 13px;
+        margin-bottom: 18px;
+    }
+
+    .diamantes {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .boton-diamante {
+        min-height: 95px;
+        padding: 10px 3px;
+        gap: 8px;
+        border-radius: 12px;
+    }
+
+    .cantidad {
+        font-size: clamp(14px, 4vw, 19px);
+    }
+
+    .precio {
+        font-size: clamp(11px, 3vw, 15px);
+    }
+
+    .paypal-imagen-boton {
+        min-height: 110px;
+        gap: 8px;
+        padding: 12px 8px;
+        border-radius: 12px;
+        font-size: 20px;
+    }
+
+    .paypal-imagen-boton img {
+        width: 75px;
+        max-height: 55px;
+    }
+
+    .tarjetadecredito {
+        max-width: 100px;
+        height: 70px;
+    }
+
+    .tarjeta001 {
+        font-size: 17px;
+    }
+}
+
+/* =========================================================
+   TELÉFONOS MUY PEQUEÑOS
+   ========================================================= */
+
+@media (max-width: 350px) {
+
+    .diamantes {
+        gap: 5px;
+    }
+
+    .boton-diamante {
+        min-height: 85px;
+        padding: 8px 2px;
+    }
+
+    .cantidad {
+        font-size: 13px;
+    }
+
+    .precio {
+        font-size: 10px;
+    }
+
+    .paso-titulo h2,
+    .paso-titulp h2 {
+        font-size: 20px;
+    }
+
+    .paypal-imagen-boton {
+        font-size: 17px;
+    }
+
+    .paypal-imagen-boton img {
+        width: 60px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
